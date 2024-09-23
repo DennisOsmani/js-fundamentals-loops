@@ -13,24 +13,70 @@ const deepThree = []
 
 // HINT: in the below loop, the statements and block of code needs to be changed
 // HINT: in the below loop, the var i represents the loop index
-// for (let i = 5; i < 7; i++) {
-// Your code here
-// }
+for (let i = 1; i < 11; i++) {
+    simpleOne.push(i);
+}
 
 // 2. Using nested for loops, add arrays to 'nestedOne' where each array has n copies of the outer 'loop index'
 //    eg [[1],[2,2],...]
+for (let i = 1; i < 11; i++) {
+  const inner = [];
+  for (let j = 0; j < i; j++) {
+    inner.push(i);
+  }
+  nestedOne.push(inner)
+}
 
 // 3. As 2, but each array should contain the values from the outer 'loop index' to 1 inclusive. Update array 'nestedTwo'
 //    eg [[1],[2,1],...]
+for (let i = 1; i <= 10; i++) {
+  const outer = [];
+  for (let j = i; j >= 1; j--) {
+    outer.push(j);
+  }
+  nestedTwo.push(outer);
+}
 
 // 4. As 2, but each array should contain arrays from 1 to the outer 'loop index' with the value of the outer 'loop index'. Update array 'deepOne'
 //    eg [[[1]],[[2],[2,2]],...]
+for (let i = 1; i < 11; i++) {
+  const array = [];
+  for (let j = 0; j < i; j++) {
+    const innerArray = [];
+    for (let k = 0; k <= j; k++) {
+      innerArray.push(i);
+    }
+    array.push(innerArray);
+  }
+  deepOne.push(array);
+}
+
 
 // 5. As 4, update array 'deepTwo' so that the result is:
 //       [[[1]],[[1],[1,2]],...]
+for (let i = 1; i < 11; i++) {
+  const outer = [];
+  for (let j = 1; j <= i; j++) {
+    const inner = [];
+    for (let k = 1; k <= j; k++) {
+      inner.push(k);
+    }
+    outer.push(inner);
+  }
+  deepTwo.push(outer);
+}
 
 // 6. As 5, update the array 'deepThree', but the result should be the average of the sum of the squares of the numbers in each array
 //       [[1],[[1],[2.5]],...]
+for (let i = 1; i < 11; i++) {
+  const outer = [];
+  for (let j = 1; j <= i; j++) {
+    const sumOfSquares = (j * (j+1) * (2 * j + 1)) / 6;
+    const average = sumOfSquares/j;
+    outer.push([average]);
+  }
+  deepThree.push(outer);
+}
 
 module.exports = {
   START,
